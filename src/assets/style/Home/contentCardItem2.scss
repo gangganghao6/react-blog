@@ -1,0 +1,36 @@
+@import "../index";
+
+.left-content-article-item.type2 {
+  flex-direction: row;
+  height: 165px;
+
+  .left-content-article-img-container {
+    width: 200px;
+    height: 165px;
+    padding-bottom: 0;
+  }
+
+  .left-content-article-text-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+    width: 65%;
+    .left-content-article-content {
+      -webkit-line-clamp: 3 !important;
+    }
+  }
+}
+
+@media screen and (max-width: $stepThree) {
+  .left-content-article-item.type2 {
+    .left-content-article-text-container {
+      padding-left: 15px;
+      .left-content-article-detail {
+        height: 50px;
+        display: flex;
+        flex-direction: column !important;
+        justify-content: space-evenly !important;
+      }
+    }
+  }
+}

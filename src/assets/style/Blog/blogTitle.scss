@@ -1,0 +1,25 @@
+.blog-title-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: white;
+
+  .blog-title {
+    padding-left: 24px;
+    padding-right: 24px;
+    font-size: 40px;
+    font-weight: 100;
+  }
+
+  .blog-title-others-container {
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-wrap: wrap;
+    .blog-title-others-item {
+      color: rgb(160, 160, 160);
+      padding-right: 10px;
+      font-size: 12px;
+    }
+  }
+}

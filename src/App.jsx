@@ -1,20 +1,23 @@
-import { useState, Suspense, useReducer, createContext, useContext } from "react";
-import "./App.scss";
+import "./assets/style/App.scss";
+import { useEffect, useNavigate } from "react";
 import AllRoutes from "./routes/route";
-import { initialState, reducer } from "./reducer/reducer";
-
-export let testContext = createContext(0);
+import Header from "./components/index/Header";
+import LeftSider from "./components/index/LeftSider";
+import Footer from "./components/index/Footer";
+import Index from "./components";
+import { BackTop } from "antd";
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState, () => {
-    return { count: 0 };
-  });
   return (
-    <testContext.Provider value={{ state, dispatch }}>
-      <div className="App">
+    <div className="App">
+      <BackTop />
+      <Header />
+      <LeftSider />
+      <Index>
         <AllRoutes />
-      </div>
-    </testContext.Provider>
+      </Index>
+      <Footer />
+    </div>
   );
 }
 

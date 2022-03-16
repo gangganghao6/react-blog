@@ -15,6 +15,7 @@ module.exports = {
       rootValue: 16,
       propList: ["*"],
       unitPrecision: 5,
+      selectorBlackList: ["html"],
     },
   },
 };

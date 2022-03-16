@@ -1,13 +1,18 @@
-export let service = axios.create({
-  baseURL: "http://192.168.5.7:3000/api",
+import axios from "axios";
+import NProgress from "nprogress";
+
+export const service = axios.create({
+  baseURL: "/api",
   timeout: 5000,
 });
 
 service.interceptors.request.use(
   (config) => {
+    NProgress.start();
+
     config.headers = {
       Accept: "*/*",
-      "Content-Type": "application/json",
+      // "Content-Type": "application/json",
     };
     return config;
   },
@@ -17,6 +22,7 @@ service.interceptors.request.use(
 );
 service.interceptors.response.use(
   (response) => {
+    NProgress.done();
     return response;
   },
   (error) => {
