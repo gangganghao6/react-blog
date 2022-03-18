@@ -12,7 +12,7 @@ export function getMdFile(name) {
     };
   }
   return function () {
-    return service.get("http://192.168.31.30:3000" + name);
+    return service.get("http://127.0.0.1:3000" + name);
   };
 }
 

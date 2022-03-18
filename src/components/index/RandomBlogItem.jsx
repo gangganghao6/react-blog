@@ -9,7 +9,7 @@ export default memo(function ({ title, post, views, id, time }) {
     <NavLink to={`/blog/${id}`}>
       <div className={"random-blog-item"}>
         <div className={"random-blog-item-img-container"}>
-          <img src={`http://192.168.31.30:3000${post}`} loading={"lazy"} alt={"header"} />
+          <img src={`http://127.0.0.1:3000${post}`} loading={"lazy"} alt={"header"} />
         </div>
         <div className={"random-blog-item-title"}>
           {title}

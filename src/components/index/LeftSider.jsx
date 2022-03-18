@@ -34,7 +34,7 @@ export default memo(function () {
                   className={"left-sider-my-img"}
                   alt="example"
                   loading={"lazy"}
-                  src="http://192.168.31.30:3000/websiteImages/header.jpg"
+                  src="http://127.0.0.1:3000/websiteImages/header.jpg"
                 />
               }
             >
