@@ -8,7 +8,7 @@ export default memo(function ({ total, setPage }) {
   };
   return (
     <div className={"pagination-container"}>
-      <Pagination defaultCurrent={1} total={total} defaultPageSize={5} showQuickJumper onChange={test} />
+      <Pagination defaultCurrent={1} total={total} defaultPageSize={10} showQuickJumper onChange={test} />
     </div>
   );
 });

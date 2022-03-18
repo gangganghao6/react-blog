@@ -13,12 +13,14 @@ import {
 import { Collapse } from "antd";
 import { NavLink } from "react-router-dom";
 import Tags from "../tags/Tags";
+import BackStageLogin from "./BackStageLogin";
 
 const { Meta } = Card;
 const { Panel } = Collapse;
 
 export default memo(function () {
   let { siderHide, setSiderHide } = store;
+  let [visible,setVisible]=useState(false)
 
   return (
     <div className={"total-sider " + (siderHide ? "sider-hide" : "sider-show")}>
@@ -72,30 +74,31 @@ export default memo(function () {
           type={"text"}
           className={"left-sider-footer-button"}
           onClick={() => {
-            console.log("dianji");
+            setVisible(true)
           }}
         >
           <SettingOutlined />
-          管理
+          后台
         </Button>
         <Button
           type={"text"}
           className={"left-sider-footer-button"}
+          disabled={true}
           onClick={() => {
-            console.log("dianji");
           }}
         >
-          按钮1
+          待开发
         </Button>
         <Button
           type={"text"}
           className={"left-sider-footer-button"}
+          disabled={true}
           onClick={() => {
-            console.log("dianji");
           }}
         >
-          按钮1
+          待开发
         </Button>
+        <BackStageLogin visible={visible} setVisible={setVisible}/>
       </div>
     </div>
   );

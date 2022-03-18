@@ -32,7 +32,7 @@ export function getSearchResult(type, key, page = 1) {
           _limit: 10,
           _sort: "id",
           _order: "desc",
-          p: key,
+          q: key,
         },
       });
     }

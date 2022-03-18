@@ -13,7 +13,7 @@ export default memo(function Tags() {
       <Panel header="文章分类" key="1">
         {data.data.map((item) => {
           return (
-            <NavLink to={`/search?type=tags&tag=${item}`}>
+            <NavLink to={`/search?type=tags&tag=${item}`} key={item.id}>
               <li className={"left-sider-menu-item ant-collapse-header"}>
                 <PaperClipOutlined /> {item}
               </li>

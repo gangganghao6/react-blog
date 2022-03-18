@@ -3,12 +3,14 @@ import { memo } from "react";
 import { Button, Input } from "antd";
 import store from "../../reducer/resso";
 import { AppstoreFilled, SearchOutlined } from "@ant-design/icons";
+import {useNavigate} from "react-router-dom";
 
 const { Search } = Input;
 export default memo(function () {
   let { setSiderHide, headerOtherHide, setHeaderOtherHide } = store;
-  const onSearch = (e) => {
-    console.log(e);
+  let navigator=useNavigate();
+  const onSearch = (content) => {
+    navigator(`/search?type=search&tag=${content}`)
   };
   return (
     <div className={"header"}>
@@ -21,7 +23,7 @@ export default memo(function () {
             className={"header-right-others-mask " + (headerOtherHide ? "hide" : "show")}
             onClick={setHeaderOtherHide}
           />
-          <Search placeholder="input search text" allowClear onSearch={onSearch} className={"search-button-max"} />
+          <Search placeholder="搜索标题" allowClear onSearch={onSearch} className={"search-button-max"} />
         </div>
       </div>
     </div>

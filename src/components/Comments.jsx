@@ -21,9 +21,9 @@ export default memo(function BlogComments({ comments, id, type }) {
       <h1>{total}条评论</h1>
       {comments.map((item) => {
         return (
-          <CommentItem setReplyData={setReplyData} data={item} id={item.time}>
+          <CommentItem setReplyData={setReplyData} data={item} key={item.time}>
             {item.children.map((itemx) => {
-              return <CommentItem setReplyData={setReplyData} data={itemx} id={item.time} />;
+              return <CommentItem setReplyData={setReplyData} data={itemx} key={itemx.time}/>;
             })}
           </CommentItem>
         );

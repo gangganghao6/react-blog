@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useRequest } from "ahooks";
 import { getAlbumDetail } from "../requests/album";
 import store from "../reducer/resso";
+import {Image} from "antd";
 
 export default memo(function AlbumListPage() {
   let { id } = useParams();
@@ -25,9 +26,11 @@ export default memo(function AlbumListPage() {
     <>
       <HeaderRouter path={"/album"} name={"详情"} subTitle={"加载可能稍慢，耐心等待哦"} />
       <div className={"album-list-container"}>
-        {data.data.images.map((item) => {
-          return <AlbumListItem key={item} image={item} />;
-        })}
+        <Image.PreviewGroup>
+          {data.data.images.map((item) => {
+            return <AlbumListItem key={item} image={item} />;
+          })}
+        </Image.PreviewGroup>
         <Comments comments={data.data.comments} id={id} type={"albums"} />
       </div>
     </>

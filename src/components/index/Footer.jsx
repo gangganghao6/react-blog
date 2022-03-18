@@ -1,11 +1,25 @@
 import "../../assets/style/Index/footer.scss";
-import { memo } from "react";
+import {memo} from "react";
 import Footer from "rc-footer";
+import {useRequest} from "ahooks";
+import {getFooter} from "../../requests";
 
 export default memo(function () {
+  let {data = {data: []}} = useRequest(getFooter)
+  if (data) {
+    data.data.forEach((item) => {
+      item.icon = <img src={`http://192.168.31.30:3000${item.post}`} loading={"lazy"} alt={item.post}/>
+      item.items.forEach((itemx) => {
+        if(itemx.url===''){
+          delete itemx.url
+        }
+        itemx.openExternal = true;
+      })
+    })
+  }
   const items = [
     {
-      icon: <img src="http://192.168.31.30:3000/websiteImages/header.jpg" loading={"lazy"} alt={"header"} />,
+      icon: <img src="http://192.168.31.30:3000/websiteImages/header.jpg" loading={"lazy"} alt={"header"}/>,
       title: "联系方式",
       items: [
         {
@@ -30,7 +44,7 @@ export default memo(function () {
       ],
     },
     {
-      icon: <img src="http://192.168.31.30:3000/websiteImages/github-dark.png" loading={"lazy"} alt={"header"} />,
+      icon: <img src="http://192.168.31.30:3000/websiteImages/github-dark.png" loading={"lazy"} alt={"header"}/>,
       title: "我的作品(github)",
       items: [
         {
@@ -63,5 +77,5 @@ export default memo(function () {
       ],
     },
   ];
-  return <Footer theme={"light"} columns={items} bottom={`Made by Pikachu - Powered by React`} />;
+  return <Footer theme={"light"} columns={data.data} bottom={`Made by Pikachu - Powered by React`}/>;
 });

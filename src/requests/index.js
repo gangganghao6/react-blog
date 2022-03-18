@@ -25,3 +25,14 @@ export function getHotList() {
     },
   });
 }
+export function getRecommendList() {
+  return service.get("/blogs", {
+    params: {
+      _limit: 5,
+      recommend:true
+    },
+  });
+}
+export function getFooter() {
+  return service.get('/footer')
+}
