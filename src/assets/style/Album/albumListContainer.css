@@ -15,7 +15,6 @@
     cursor: pointer;
     width: 145px;
     height: 145px;
-    overflow: hidden;
     margin: 1px 1px; }
     .album-list-container .album-list-item .ant-image {
       display: flex; }

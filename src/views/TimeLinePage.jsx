@@ -12,7 +12,6 @@ import dayjs from "dayjs";
 export default memo(function TimeLinePage() {
   const { siderHide, setSiderHide } = store;
   let { data = { data: [] } } = useRequest(getTimeLine);
-  // console.log(data)
   useEffect(() => {
     if (!siderHide) {
       setSiderHide();

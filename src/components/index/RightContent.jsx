@@ -22,7 +22,7 @@ export default memo(function () {
   let visitCount = "加载中...";
   if (data) {
     days = dayjs(+new Date()).diff(data.data.startTime, "day");
-    lastActive = dayjs(data.data.lastActive).format("YYYY-MM-DD");
+    lastActive = dayjs(data.data.lastModified).format("YYYY-MM-DD");
     ({ blogCount, commentCount, visitCount } = data.data);
   }
   return (
