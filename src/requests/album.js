@@ -11,6 +11,7 @@ export function getAlbumList() {
 
 export function getAlbumDetail(id = 1) {
   return function () {
+    service.patch('/updateAlbumViews',{id}).then()
     return service.get(`/albums/${id}`);
   };
 }

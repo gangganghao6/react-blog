@@ -4,7 +4,7 @@ import AllRoutes from "./routes/route";
 import Header from "./components/index/Header";
 import LeftSider from "./components/index/LeftSider";
 import Footer from "./components/index/Footer";
-import Index from "./components";
+import Index from "./components/index/Index";
 import { BackTop } from "antd";
 
 function App() {

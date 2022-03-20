@@ -31,7 +31,9 @@ export default memo(function home({type = "home"}) {
       window.scrollTo(0, 0);
     }
   }, [location.search]);
-
+  useEffect(() => {
+    setPage(1)
+  }, [type])
   return (
       <>
         {type === "home" ? <TopCard/> : ""}

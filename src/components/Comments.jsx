@@ -21,14 +21,14 @@ export default memo(function BlogComments({ comments, id, type }) {
       <h1>{total}条评论</h1>
       {comments.map((item) => {
         return (
-          <CommentItem setReplyData={setReplyData} data={item} key={item.time}>
+          <CommentItem setReplyData={setReplyData} data={item} key={item.time} floor={item.floor}>
             {item.children.map((itemx) => {
-              return <CommentItem setReplyData={setReplyData} data={itemx} key={itemx.time}/>;
+              return <CommentItem setReplyData={setReplyData} data={itemx} key={itemx.time} floor={item.floor}/>;
             })}
           </CommentItem>
         );
       })}
-      <CommentInput replyData={replyData} id={id} totalComments={comments} type={type} />
+      <CommentInput setReplyData={setReplyData} replyData={replyData} id={id} totalComments={comments} type={type} />
     </div>
   );
 });

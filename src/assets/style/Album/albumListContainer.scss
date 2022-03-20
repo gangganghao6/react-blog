@@ -10,9 +10,9 @@ $albumLength: 145px;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding-left: 5px;
-  padding-right: 5px;
-
+  padding-left: 10px;
+  padding-right: 10px;
+  //justify-content: center;
   .album-list-item {
     cursor: pointer;
     width: $albumLength;

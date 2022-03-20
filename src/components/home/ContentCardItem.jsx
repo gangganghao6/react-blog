@@ -17,7 +17,7 @@ export default memo(
     return (
       <Link className={"left-content-article-item " + (type === 1 ? "type1" : "type2")} to={"/blog/" + id}>
         <div className={"left-content-article-img-container"}>
-          <img className={"left-content-article-img"} loading={"lazy"} src={`http://127.0.0.1:3000${post}`} />
+          <img className={"left-content-article-img"} loading={"lazy"} src={`${window.url}${post}`} />
         </div>
         <div className={"left-content-article-text-container"}>
           <div className={"left-content-article-title"}>{title}</div>

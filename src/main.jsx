@@ -8,7 +8,8 @@ import "nprogress/nprogress.css";
 import init from "./utils/init";
 import zhCN from "antd/lib/locale/zh_CN";
 import { ConfigProvider } from "antd";
-
+// window.url="http://192.168.31.30:8082"
+window.url='http://39.105.105.42:8082'
 init();
 
 ReactDOM.render(

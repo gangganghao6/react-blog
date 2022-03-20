@@ -3,13 +3,14 @@ import { Avatar, Comment, Tooltip } from "antd";
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined, UserOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 
-export default memo(function BlogCommentItem({ setReplyData, children, data }) {
+export default memo(function BlogCommentItem({ setReplyData, children, data,floor }) {
   const reply = () => {
     setReplyData((draft) => {
       draft.replyName = data.name;
-      draft.floor = data.floor;
+      draft.floor = floor;
       draft.isInner = true;
     });
+    console.log(floor)
   };
   const actions = [
     <span key="comment-basic-reply-to" onClick={reply}>

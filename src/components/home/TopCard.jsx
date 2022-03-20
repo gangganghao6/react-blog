@@ -6,7 +6,7 @@ export default memo(function TopCard() {
     <NavLink to={"/about"} className={"left-content-topcard"}>
       <div className={"left-content-topcard-img-container"}>
         <img
-          src={"http://192.168.31.30:3000/websiteImages/rion2.jpg"}
+          src={`${window.url}/websiteImages/rion.jpg`}
           className={"left-content-topcard-img"}
           alt={""}
         />

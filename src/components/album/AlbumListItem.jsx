@@ -7,9 +7,9 @@ export default memo(function AlbumListItem({image}) {
   return (
       <>
         <div className={"album-list-item"}>
-          <Image loading={"lazy"} src={`http://127.0.0.1:3000${splits.join('/')}`}
+          <Image src={`${window.url}${splits.join('/')}`}
                  preview={{
-                   src: `http://127.0.0.1:3000${image}`,
+                   src: `${window.url}${image}`,
                  }}/>
         </div>
 

@@ -8,14 +8,20 @@ import store from "../reducer/resso";
 
 const {TextArea} = Input;
 
-export default memo(function BlogCommentInput({replyData: {replyName, isInner, floor}, id, totalComments, type}) {
+export default memo(function BlogCommentInput({setReplyData, replyData: {replyName, isInner, floor}, id, totalComments, type}) {
   let ref = useRef();
   const {setRefresh} = store;
   const [form] = Form.useForm();
 
+
   function onFinish({comment, name, email}) {
     addComment(id, isInner, floor, replyName, name, email, comment, totalComments, type).then((res) => {
       form.resetFields();
+      setReplyData((draft) => {
+        draft.replyName = undefined;
+        draft.floor = undefined;
+        draft.isInner = false;
+      });
       setRefresh();
       message.success('发布成功');
     });
@@ -26,7 +32,7 @@ export default memo(function BlogCommentInput({replyData: {replyName, isInner, f
       ref.current.resizableTextArea.textArea.placeholder = `回复 @${replyName}:`;
       ref.current.focus();
     }
-  }, [replyName]);
+  }, [replyName, floor]);
   return (
       <div className={"blog-comment-input-container"}>
         <Form onFinish={onFinish} name="basic" form={form}>
