@@ -10,6 +10,9 @@ export default memo(
   function ContentCardItem({ data: { type, id, post, views, comments, time, title, content, tags } }) {
     let { data } = useRequest(getMdFile(content));
     let total = comments.length;
+    let splits = post.split('/')
+    splits[3]=`gzip_${splits[3]}`
+    let all=splits.join('/')
     comments.forEach((item) => {
       total += item.children.length;
     });
@@ -17,7 +20,7 @@ export default memo(
     return (
       <Link className={"left-content-article-item " + (type === 1 ? "type1" : "type2")} to={"/blog/" + id}>
         <div className={"left-content-article-img-container"}>
-          <img className={"left-content-article-img"} loading={"lazy"} src={`${window.url}${post}`} />
+          <img className={"left-content-article-img"} loading={"lazy"} src={`${window.url}${all}`} />
         </div>
         <div className={"left-content-article-text-container"}>
           <div className={"left-content-article-title"}>{title}</div>
