@@ -3,14 +3,15 @@ import {Button, Image} from "antd";
 
 export default memo(function AlbumListItem({image}) {
   let splits = image.split('/')
-  splits[3] = `gzip_${splits[3]}`
+  splits[5] = `gzip_${splits[5]}`
   return (
       <>
         <div className={"album-list-item"}>
-          <Image src={`${window.url}${splits.join('/')}`}
+          <Image src={`${splits.join('/')}`}
                  preview={{
-                   src: `${window.url}${image}`,
-                 }}/>
+                   src: `${image}`,
+                 }}
+          loading={'lazy'}/>
         </div>
 
       </>

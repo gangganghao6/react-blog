@@ -8,6 +8,7 @@ import {useRequest} from "ahooks";
 import {getBlogList, getSearchResult} from "../requests/home";
 import HeaderRouter from "../components/HeaderRouter";
 import {useLocation, useParams} from "react-router-dom";
+import {Skeleton} from "antd";
 
 export default memo(function home({type = "home"}) {
   let location = useLocation();
@@ -33,11 +34,17 @@ export default memo(function home({type = "home"}) {
   }, [location.search]);
   useEffect(() => {
     setPage(1)
-  }, [type])
+  }, [type,url.get("tag")])
   return (
       <>
         {type === "home" ? <TopCard/> : ""}
         {type === "search" ? <HeaderRouter path={"/"} name={"搜索结果"}/> : ""}
+        {data.data.length === 0 ? (
+            <><Skeleton active/>
+              <Skeleton active/>
+              <Skeleton active/>
+              <Skeleton active/></>) : ''}
+
         <div className={"left-content-article"}>
           {data.data.map((item) => {
             return <ContentCardItem data={item} key={item.id}/>;
