@@ -10,5 +10,6 @@ export default memo(function AlbumItem({ data }) {
         <div className={"album-title"}>{data.name}</div>
       </NavLink>
     </>
+    
   );
 });

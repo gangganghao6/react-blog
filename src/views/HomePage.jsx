@@ -2,7 +2,7 @@ import {memo, useEffect, useState} from "react";
 import ContentCardItem from "../components/home/ContentCardItem";
 import "../assets/style/Home/contentCards.scss";
 import TopCard from "../components/home/TopCard";
-import Pagination from "../components/Pagination";
+import MyPagination from "../components/MyPagination";
 import store from "../reducer/resso";
 import {useRequest} from "ahooks";
 import {getBlogList, getSearchResult} from "../requests/home";
@@ -44,7 +44,7 @@ export default memo(function home({type = "home"}) {
           })}
         </div>
         <div className={"left-content-pagination"}>
-          <Pagination total={data.headers["x-total-count"]} setPage={setPage}/>
+          <MyPagination total={data.headers["x-total-count"]} setPage={setPage}/>
         </div>
       </>
   );
