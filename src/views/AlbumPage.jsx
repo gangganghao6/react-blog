@@ -3,7 +3,7 @@ import store from "../reducer/resso";
 import AlbumItem from "../components/album/AlbumItem";
 import "../assets/style/Album/albumContainer.scss";
 import HeaderRouter from "../components/HeaderRouter";
-import Pagination from "../components/Pagination";
+import MyPagination from "../components/MyPagination";
 import { useRequest } from "ahooks";
 import { getAlbumList } from "../requests/album";
 import AlbumListItem from "../components/album/AlbumListItem";
