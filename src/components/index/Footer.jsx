@@ -8,7 +8,7 @@ export default memo(function () {
   let {data = {data: []}} = useRequest(getFooter)
   if (data) {
     data.data.forEach((item) => {
-      item.icon = <img src={`${window.url}${item.post}`} loading={"lazy"} alt={item.post}/>
+      item.icon = <img src={`${item.post}`} loading={"lazy"} alt={item.post}/>
       item.items.forEach((itemx) => {
         if(itemx.url===''){
           delete itemx.url

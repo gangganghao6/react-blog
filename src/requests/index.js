@@ -12,7 +12,7 @@ export function getMdFile(name) {
     };
   }
   return function () {
-    return service.get(window.url + name);
+    return service.get(name);
   };
 }
 

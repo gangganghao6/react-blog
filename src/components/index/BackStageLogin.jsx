@@ -1,6 +1,7 @@
 import {memo, useState} from "react";
 import {Button, Form, Input, message, Modal, Radio} from "antd";
 import {service} from "../../requests/request";
+import {useNavigate} from "react-router-dom";
 
 const CollectionCreateForm = ({visible, onCreate, onCancel}) => {
   const [form] = Form.useForm();
@@ -42,13 +43,14 @@ const CollectionCreateForm = ({visible, onCreate, onCancel}) => {
   );
 };
 
-const CollectionsPage = ({visible, setVisible}) => {
+const CollectionsPage = ({visible, setVisible,navigator}) => {
 
   const onCreate = async ({password}) => {
     let {data} = await service.get('/password')
     if (password === data[0]) {
       message.loading("登录成功，正在进入...")
       setVisible(false);
+      window.location.href=`${window.location.origin}/backstage`
     } else {
       message.error("密码不对哦")
     }
@@ -69,5 +71,6 @@ const CollectionsPage = ({visible, setVisible}) => {
 
 
 export default memo(function BackStageLogin(props) {
-  return <><CollectionsPage {...props}/></>;
+  let navigator=useNavigate();
+  return <><CollectionsPage {...props} navigator={navigator}/></>;
 });

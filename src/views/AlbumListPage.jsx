@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { useRequest } from "ahooks";
 import { getAlbumDetail } from "../requests/album";
 import store from "../reducer/resso";
+
 import { Image } from "antd";
 
 export default memo(function AlbumListPage() {

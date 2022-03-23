@@ -11,7 +11,7 @@ export default memo(
     let { data } = useRequest(getMdFile(content));
     let total = comments.length;
     let splits = post.split('/')
-    splits[3]=`gzip_${splits[3]}`
+    splits[5]=`gzip_${splits[5]}`
     let all=splits.join('/')
     comments.forEach((item) => {
       total += item.children.length;
@@ -20,7 +20,7 @@ export default memo(
     return (
       <Link className={"left-content-article-item " + (type === 1 ? "type1" : "type2")} to={"/blog/" + id}>
         <div className={"left-content-article-img-container"}>
-          <img className={"left-content-article-img"} loading={"lazy"} src={`${window.url}${all}`} />
+          <img className={"left-content-article-img"} loading={"lazy"} src={`${all}`} />
         </div>
         <div className={"left-content-article-text-container"}>
           <div className={"left-content-article-title"}>{title}</div>
