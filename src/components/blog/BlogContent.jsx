@@ -20,7 +20,7 @@ SyntaxHighlighter.registerLanguage("rust", rust);
 SyntaxHighlighter.registerLanguage("java", java);
 const components = {
   code({ node, inline, className, children, ...props }) {
-    const match = /language-(\w+)/.exec(className || "");
+    const match = /language-(\w+)/.exec(className || "language-js");
     return (
       <SyntaxHighlighter
         style={atomOneDark}
