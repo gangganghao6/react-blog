@@ -4,7 +4,7 @@ import { EyeOutlined, FieldTimeOutlined, HighlightOutlined, MessageOutlined, Rea
 import HeaderRouter from "../HeaderRouter";
 
 export default memo(function BlogTitle({ msg }) {
-  const { title, time, views, comments, words, tags } = msg;
+  const { title, time, view, comments, words, tag } = msg;
   return (
     <div className={"blog-title-container"}>
       <HeaderRouter />
@@ -14,7 +14,7 @@ export default memo(function BlogTitle({ msg }) {
           <FieldTimeOutlined /> {time}
         </div>
         <div className={"blog-title-others-item"}>
-          <EyeOutlined /> {views}
+          <EyeOutlined /> {view}
         </div>
         <div className={"blog-title-others-item"}>
           <MessageOutlined /> {comments}
@@ -23,7 +23,7 @@ export default memo(function BlogTitle({ msg }) {
           <ReadOutlined /> {words}字数
         </div>
         <div className={"blog-title-others-item"}>
-          <HighlightOutlined /> {tags}
+          <HighlightOutlined /> {tag}
         </div>
       </div>
     </div>

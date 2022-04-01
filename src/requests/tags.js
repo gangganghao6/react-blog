@@ -1,5 +1,5 @@
 import { service } from "./request";
 
 export function getTags() {
-  return service.get("/tags");
+  return service.get("/info/tags");
 }

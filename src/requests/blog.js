@@ -1,51 +1,40 @@
-import {service} from "./request";
+import {service} from './request';
+import comments from '../components/Comments';
+
+export function getPostSrc(id) {
+ return async function () {
+  return service.get(`/images/${id}`);
+ };
+}
 
 export function getBlogDetail(id) {
-  return function () {
-    service
-        .patch("/updateBlogViews", {
-          id,
-        })
-        .then();
-    return service.get(`/blogs/${id}`);
-  };
-}
-
-function findMaxFloor(totalComments) {
-  let max = 0;
-  totalComments.forEach((item) => {
-    if (item.floor > max) {
-      max = item.floor;
-    }
-  })
-  return max;
-}
-
-export async function addComment(id, isInner, floor, replyName, name, email, comment, totalComments, type) {
-  await service.patch("/updateInfoComments");
-  if (!isInner) {
-    totalComments[totalComments.length] = {
-      floor: findMaxFloor(totalComments) + 1,
-      name,
-      comment,
-      email,
-      time: +new Date(),
-      children: [],
-    };
-  } else {
-    let target = totalComments.filter((item) => {
-      return item.floor === floor;
-    })
-    target[0].children[target[0].children.length] = {
-      floor: findMaxFloor(target[0].children) + 1,
-      name,
-      comment,
-      email,
-      time: +new Date(),
-      replyName,
-    };
-  }
-  return service.patch(`/${type}/${id}`, {
-    comments: totalComments,
+ return function () {
+  service.put(`/blogs/view/${id}`).then((res)=>{
+   console.log(res);
   });
+  return service.get(`/blogs/${id}`);
+ };
+}
+
+
+export async function addComment(id, isInner, parentComment, replyComment, myComment, type) {
+ let result;
+ if (!isInner) {
+  result = await service.put(`/${type}/${id}`, {
+   comments: [{
+    time: +new Date(),
+    comment: myComment.comment,
+    email: myComment.email,
+    name: myComment.name,
+   }]
+  });
+ } else {
+  let myParentComment = {...parentComment};
+  myParentComment.innerComments = [myComment];
+   result = await service.put(`/${type}/${id}`, {
+    comments: [myParentComment]
+   });
+ }
+ await service.put('/info');
+ return result;
 }

@@ -1,67 +1,53 @@
-import {memo, useEffect, useState} from "react";
-import {useNavigate, useLocation, useParams} from "react-router-dom";
-import BlogTitle from "../components/blog/BlogTitle";
-import Content from "../components/blog/BlogContent";
-import Comments from "../components/Comments";
-import NProgress from "nprogress";
-import store from "../reducer/resso";
-import {useRequest} from "ahooks";
-import {getBlogDetail} from "../requests/blog";
-import dayjs from "dayjs";
-import {getMdFile} from "../requests";
+import {memo, useEffect, useState} from 'react';
+import {useNavigate, useLocation, useParams} from 'react-router-dom';
+import BlogTitle from '../components/blog/BlogTitle';
+import Content from '../components/blog/BlogContent';
+import Comments from '../components/Comments';
+import store from '../reducer/resso';
+import {useRequest} from 'ahooks';
+import {getBlogDetail} from '../requests/blog';
+import {parseTime} from '../utils/timeFormat';
 
 export default memo(function Blog({id = undefined}) {
-  const {siderHide, setSiderHide, refresh} = store;
-  const params = useParams();
-  if (id === undefined) {
-    id = params.id;
-  }
-  let {data} = useRequest(getBlogDetail(id), {
-    refreshDeps: [refresh, id],
+ const {siderHide, setSiderHide, refresh} = store;
+ const params = useParams();
+ if (id === undefined) {
+  id = params.id;
+ }
+ let {data, loading} = useRequest(getBlogDetail(id), {
+  refreshDeps: [refresh, id],
+ });
+ let total = 0;
+ let view = 0, comments = [], time = 0, title = '', content = '', lastModified = 0, tag = '';
+ if (data) {
+  ({view = 0, comments = [], time = 0, title = '', content = '', lastModified = 0, tag = ''} = data.data.data);
+  total += comments.length;
+  comments.forEach((item) => {
+   total += item.innerComments.length;
   });
-  let views = 0,
-      comments = [],
-      time = 0,
-      title = "",
-      content = "",
-      tags = [],
-      lastModified = 0,
-      total = 0;
-  if (data) {
-    ({views = 0, comments = [], time = 0, title = "", content = "", lastModified = 0, tags = []} = data.data);
-    total+=comments.length;
-    comments.forEach((item) => {
-      total += item.children.length;
-    });
-  }
-  let {data: data2, error} = useRequest(getMdFile(content), {
-    refreshDeps: [content],
-  });
-  if (data2) {
-    content = data2 ? data2.data : "";
-  }
+ }
 
-  useEffect(() => {
-    if (!siderHide) {
-      setSiderHide();
-    }
-    window.scrollTo(0, 0);
-  }, [id]);
-  return (
-      <>
-        <BlogTitle
-            msg={{
-              title,
-              time: dayjs(time).format("YYYY-MM-DD HH:mm:ss"),
-              lastModified: dayjs(lastModified).format("YYYY-MM-DD HH:mm:ss"),
-              views,
-              comments: total,
-              words: content.length,
-              tags,
-            }}
-        />
-        <Content content={content} lastModified={lastModified}/>
-        <Comments comments={comments} id={id} type={"blogs"}/>
-      </>
-  );
+ useEffect(() => {
+  if (!siderHide) {
+   setSiderHide();
+  }
+  window.scrollTo(0, 0);
+ }, [id]);
+ return (
+     <>
+      <BlogTitle
+          msg={{
+           title,
+           time: parseTime(time),
+           lastModified: parseTime(lastModified),
+           view,
+           comments: total,
+           words: content.length,
+           tag,
+          }}
+      />
+      <Content content={content} lastModified={lastModified}/>
+      <Comments comments={comments} id={id} type={'blogs'}/>
+     </>
+ );
 });
