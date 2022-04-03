@@ -5,10 +5,11 @@ import dayjs from 'dayjs';
 import {useRequest} from 'ahooks';
 import {Space} from 'antd';
 import {getPostSrc} from '../../requests/blog';
+import {parseTime} from '../../utils/timeFormat';
 
 export default memo(
     function ContentCardItem({data: {type, id, postId, view, comments, time, title, content, tag}}) {
-     let {data, loading} = useRequest(getPostSrc(postId));
+     let {data} = useRequest(getPostSrc(postId));
      let total = comments.length;
      comments.forEach((item) => {
       total += item.innerComments.length;
@@ -25,7 +26,7 @@ export default memo(
            <div className={'left-content-article-detail'}>
             <div className={'left-content-article-detail-item'}>
              <FieldTimeOutlined/>
-             {dayjs(time).format('YYYY-MM-DD HH:mm:ss')}
+             {parseTime(time)}
             </div>
             <Space>
              <div className={'left-content-article-detail-item'}>
@@ -38,7 +39,7 @@ export default memo(
              </div>
              <div className={'left-content-article-detail-item'}>
               <HighlightOutlined/>
-              {tag.text}
+              {tag}
              </div>
             </Space>
            </div>

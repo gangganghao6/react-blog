@@ -36,7 +36,7 @@
             font-weight: 600; }
           .total-sider .left-sider-container .left-sider .left-sider-my .left-sider-my-card .left-sider-my-img {
             margin-top: 10px;
-            width: 100px;
+            max-width: 150px;
             height: 100px; }
       .total-sider .left-sider-container .left-sider .left-sider-menu-item {
         height: 45px;

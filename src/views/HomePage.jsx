@@ -21,20 +21,22 @@ export default memo(function home({type = 'home'}) {
    refreshDeps: [url.toString(), page],
   }));
  } else if (type === 'search') {
-  ({data, loading} = useRequest(getSearchResult(url.get('type'), url.get('tag'), page), {
+  ({data, loading} = useRequest(getSearchResult(url.get('type'), url.get('text'), page), {
    refreshDeps: [url.toString(), page],
   }));
  }
- // data = data ? data : {data: [], headers: {"x-total-count": 1}};
+
  useEffect(() => {
   if (!siderHide) {
    setSiderHide();
    window.scrollTo(0, 0);
   }
+  return function () {
+   setPage(1);
+  }
  }, [location.search]);
- useEffect(() => {
-  setPage(1);
- }, [type, url.get('tag')]);
+ // useEffect(() => {
+ // }, [type, url.get('tag')]);
  return (
      <>
       {type === 'home' ? <TopCard/> : ''}
@@ -48,7 +50,7 @@ export default memo(function home({type = 'home'}) {
        })}
       </div>
       <div className={'left-content-pagination'}>
-       <MyPagination total={loading ? 0 : data.data.data.count} setPage={setPage}/>
+       <MyPagination current={page} total={loading ? 0 : data.data.data.count} setPage={setPage} pageSize={10}/>
       </div>
      </>
  );

@@ -10,7 +10,7 @@ export default memo(function () {
   let { setSiderHide, headerOtherHide, setHeaderOtherHide } = store;
   let navigator=useNavigate();
   const onSearch = (content) => {
-    navigator(`/search?type=search&tag=${content}`)
+    navigator(`/search?type=search&text=${content}`)
   };
   return (
     <div className={"header"}>
@@ -23,7 +23,7 @@ export default memo(function () {
             className={"header-right-others-mask " + (headerOtherHide ? "hide" : "show")}
             onClick={setHeaderOtherHide}
           />
-          <Search placeholder="搜索标题" allowClear onSearch={onSearch} className={"search-button-max"} />
+          <Search placeholder="搜索文章" allowClear onSearch={onSearch} className={"search-button-max"} />
         </div>
       </div>
     </div>

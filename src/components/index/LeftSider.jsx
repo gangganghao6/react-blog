@@ -37,7 +37,7 @@ export default memo(function () {
                   alt="example"
                   loading={'lazy'}
                   src={data ? data.data.data.userHeader : ''}
-                  style={{objectFit: 'cover', width: '100%'}}
+                  style={{objectFit: 'cover'}}
               />
              }
          >

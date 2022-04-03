@@ -11,15 +11,15 @@ export default memo(function Tags() {
  return (
      <Collapse defaultActiveKey={[]} bordered={false}>
       <Panel header="文章分类" key="1">
-       {loading ? '加载中' : data.data.data.map((item) => {
+       {data ? data.data.data.map((item) => {
         return (
-            <NavLink to={`/search?type=tags&tag=${item.text}`} key={item.id}>
+            <NavLink to={`/search?type=tags&text=${item.text}`} key={item.id}>
              <li className={'left-sider-menu-item ant-collapse-header'}>
               <PaperClipOutlined/> {item.text}
              </li>
             </NavLink>
         );
-       })}
+       }) : '加载中'}
        {}
       </Panel>
      </Collapse>

@@ -19,30 +19,27 @@ export async function getTopBlog() {
   title: result.data.data.title,
   content: result.data.data.content,
   gzipSrc: result2.data.data.gzipSrc,
-  color: pre.data.data.topCardColor
+  color: pre.data.data.topCardColor,
+  id: pre.data.data.topCardId
  };
 }
 
 export function getSearchResult(type, key, page = 1) {
  return function () {
   if (type === 'tags') {
-   return service.get('/blogs', {
+   return service.get('/blogs/search', {
     params: {
-     _page: page,
-     _limit: 10,
-     _sort: 'id',
-     _order: 'desc',
-     tags: key,
+     pageNum: page,
+     pageSize: 10,
+     tag: key,
     },
    });
   } else {
-   return service.get('/blogs', {
+   return service.get('/blogs/search', {
     params: {
-     _page: page,
-     _limit: 10,
-     _sort: 'id',
-     _order: 'desc',
-     q: key,
+     pageNum: page,
+     pageSize: 10,
+     text: key,
     },
    });
   }

@@ -8,11 +8,11 @@ import store from '../reducer/resso';
 import {useRequest} from 'ahooks';
 import {getTimeLine} from '../requests/timeLine';
 import dayjs from 'dayjs';
+import {parseTime} from '../utils/timeFormat';
 
 export default memo(function TimeLinePage() {
  const {siderHide, setSiderHide} = store;
  let {data, loading} = useRequest(getTimeLine);
- console.log(data);
  useEffect(() => {
   if (!siderHide) {
    setSiderHide();
@@ -29,7 +29,7 @@ export default memo(function TimeLinePage() {
          return (
              <Timeline.Item
                  key={item.id}
-                 label={dayjs(item.time).format('YYYY-MM-DD HH:mm:ss')}
+                 label={parseTime(item.time)}
                  dot={<ClockCircleOutlined style={{fontSize: '16px'}}/>}
              >
               {item.text}

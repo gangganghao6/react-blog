@@ -1,5 +1,5 @@
 import {memo, useState} from 'react';
-import {Button, Image} from 'antd';
+import {Button, Image, Skeleton} from 'antd';
 
 export default memo(function AlbumListItem({image}) {
  return (
@@ -9,6 +9,9 @@ export default memo(function AlbumListItem({image}) {
               preview={{
                src: `${image.originSrc}`,
               }}
+              // placeholder={
+              //  <Skeleton.Image/>
+              // }
               loading={'lazy'}/>
       </div>
 

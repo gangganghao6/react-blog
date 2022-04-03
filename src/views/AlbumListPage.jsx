@@ -14,6 +14,7 @@ import {Empty, Image} from 'antd';
 export default memo(function AlbumListPage() {
  let {id} = useParams();
  let {siderHide, setSiderHide, refresh} = store;
+ const [page, setPage] = useState(1);
  useEffect(() => {
   if (!siderHide) {
    setSiderHide();
@@ -35,11 +36,11 @@ export default memo(function AlbumListPage() {
       {data ? '' : <Empty/>}
       <div className={'album-list-container'}>
        <Image.PreviewGroup>
-        {images.map((item) => {
+        {images.slice((page - 1) * 40, page * 40).map((item) => {
          return <AlbumListItem key={item.id} image={item}/>;
         })}
        </Image.PreviewGroup>
-       <MyPagination/>
+       <MyPagination total={images.length} current={page} setPage={setPage} pageSize={40}/>
        <Comments comments={comments} id={id} type={'albums'}/>
       </div>
      </>

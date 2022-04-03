@@ -10,7 +10,7 @@ export default memo(function AlbumItem({data}) {
      <>
       <NavLink to={`/album/${data.id}`} className={'album-item'}>
        {data1 ?
-           <img loading={'lazy'} src={data1.data.data.gzipSrc} alt={loading ? '' : data.name}/> : ''}
+           <img loading={'lazy'} src={data1.data.data.gzipSrc} alt={loading ? '' : data.name}/> : Empty.PRESENTED_IMAGE_DEFAULT}
        <div className={'album-title'}>{data.name}</div>
       </NavLink>
      </>

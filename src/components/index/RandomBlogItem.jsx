@@ -16,12 +16,12 @@ export default memo(function ({title, postId, view, id, time}) {
      <NavLink to={`/blog/${id}`}>
       <div className={'random-blog-item'}>
        <div className={'random-blog-item-img-container'}>
-        <img src={data ? data.data.data.gzipSrc : ''} loading={'lazy'} alt={'header'}/>
+        {data ? <img src={data.data.data.gzipSrc} alt={'header'}/> : ''}
        </div>
        <div className={'random-blog-item-title'}>
         {title}
         <div className={'random-blog-item-detail'}>
-         <EyeOutlined/> {view} <FieldTimeOutlined/> {parseTime(time)}
+         <EyeOutlined/> {view} <FieldTimeOutlined/> {dayjs(parseInt(time)).format('YYYY-MM-DD')}
         </div>
        </div>
       </div>
