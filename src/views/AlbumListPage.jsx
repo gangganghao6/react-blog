@@ -36,11 +36,11 @@ export default memo(function AlbumListPage() {
       {data ? '' : <Empty/>}
       <div className={'album-list-container'}>
        <Image.PreviewGroup>
-        {images.slice((page - 1) * 40, page * 40).map((item) => {
+        {images.slice((page - 1) * 20, page * 20).map((item) => {
          return <AlbumListItem key={item.id} image={item}/>;
         })}
        </Image.PreviewGroup>
-       <MyPagination total={images.length} current={page} setPage={setPage} pageSize={40}/>
+       <MyPagination total={images.length} current={page} setPage={setPage} pageSize={20}/>
        <Comments comments={comments} id={id} type={'albums'}/>
       </div>
      </>

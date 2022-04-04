@@ -6,8 +6,7 @@ import {Empty} from 'antd';
 
 export default memo(function TopCard() {
  let {data, loading} = useRequest(getTopBlog);
- console.log(data);
- return ( 
+ return (
      <NavLink to={data ? `/blog/${data.id}` : ''} className={'left-content-topcard'}>
       <div className={'left-content-topcard-img-container'} style={{textAlign: 'center'}}>
        {data ? <img

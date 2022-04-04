@@ -29,7 +29,7 @@ export default memo(function TimeLinePage() {
          return (
              <Timeline.Item
                  key={item.id}
-                 label={parseTime(item.time)}
+                 label={dayjs(parseInt(item.time)).format('YYYY-MM-DD')}
                  dot={<ClockCircleOutlined style={{fontSize: '16px'}}/>}
              >
               {item.text}

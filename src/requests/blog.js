@@ -9,9 +9,6 @@ export function getPostSrc(id) {
 
 export function getBlogDetail(id) {
  return function () {
-  service.put(`/blogs/view/${id}`).then((res)=>{
-   console.log(res);
-  });
   return service.get(`/blogs/${id}`);
  };
 }

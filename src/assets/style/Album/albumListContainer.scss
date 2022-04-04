@@ -1,7 +1,7 @@
 @import "../index";
 
-$albumLength: 145px;
-
+//$albumLength: 170px;
+$albumLength: 210px;
 .album-list-container {
   width: 100%;
   height: auto;
@@ -12,17 +12,16 @@ $albumLength: 145px;
   align-content: flex-start;
   padding-left: 10px;
   padding-right: 10px;
-  //justify-content: center;
+
   .album-list-item {
     cursor: pointer;
     width: $albumLength;
     height: $albumLength;
-    //overflow: hidden;
+    overflow: hidden;
     margin: 1px 1px;
 
     .ant-image {
       display: flex;
-
       img {
         width: 100%;
         height: $albumLength;
@@ -31,9 +30,7 @@ $albumLength: 145px;
     }
   }
 
-  .album-list-item:hover {
-    opacity: 0.75;
-  }
+
   .blog-comments-container {
     margin-top: 50px;
   }
@@ -73,7 +70,7 @@ $albumLength: 145px;
 
 @media screen and (max-width: $stepThree) {
   $contentWidth: $stepThreeWidth;
-  $albumLength: calc(#{$contentWidth} / 4.5);
+  $albumLength: calc(#{$contentWidth} / 4.4);
   .album-list-container {
     .album-list-item {
       width: $albumLength;
