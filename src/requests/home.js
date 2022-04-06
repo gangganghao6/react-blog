@@ -5,7 +5,7 @@ export function getBlogList(page = 1) {
   return service.get('/blogs', {
    params: {
     pageNum: page,
-    pageSize: 1,
+    pageSize: 10,
    },
   });
  };

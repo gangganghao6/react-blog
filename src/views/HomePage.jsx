@@ -50,7 +50,7 @@ export default memo(function home({type = 'home'}) {
        })}
       </div>
       <div className={'left-content-pagination'}>
-       <MyPagination current={page} total={loading ? 0 : data.data.data.count} setPage={setPage} pageSize={1}/>
+       <MyPagination current={page} total={loading ? 0 : data.data.data.count} setPage={setPage} pageSize={10}/>
       </div>
      </>
  );
