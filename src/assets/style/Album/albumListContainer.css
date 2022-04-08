@@ -28,16 +28,16 @@
 
 @media screen and (max-width: 1420px) {
   .album-list-container .album-list-item {
-    width: 110px;
-    height: 110px; }
+    width: 140px;
+    height: 140px; }
     .album-list-container .album-list-item .ant-image img {
-      height: 110px; } }
+      height: 140px; } }
 @media screen and (max-width: 1150px) {
   .album-list-container .album-list-item {
-    width: 115px;
-    height: 115px; }
+    width: 145px;
+    height: 145px; }
     .album-list-container .album-list-item .ant-image img {
-      height: 115px; } }
+      height: 145px; } }
 @media screen and (max-width: 900px) {
   .album-list-container .album-list-item {
     width: calc(var(--screen-width) / 4.4);

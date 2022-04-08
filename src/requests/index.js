@@ -5,7 +5,7 @@ export function getInfo() {
 }
 
 export function getUserInfo() {
-  return service.get('/info/userInfo')
+  return service.get("/info/userInfo");
 }
 
 export function getHotAndRecommendList() {
@@ -13,5 +13,5 @@ export function getHotAndRecommendList() {
 }
 
 export function getFooter() {
-  return service.get('/info/footers')
+  return service.get("/info/footers");
 }

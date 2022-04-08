@@ -2,20 +2,24 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: white; }
-  .blog-title-container .blog-title {
-    padding-left: 24px;
-    padding-right: 24px;
-    font-size: 40px;
-    font-weight: 500; }
-  .blog-title-container .blog-title-others-container {
-    display: flex;
-    padding-left: 24px;
-    padding-right: 24px;
-    flex-wrap: wrap; }
-    .blog-title-container .blog-title-others-container .blog-title-others-item {
-      color: #a0a0a0;
-      padding-right: 10px;
-      font-size: 12px; }
+  background-color: white;
+}
+.blog-title-container .blog-title {
+  padding-left: 24px;
+  padding-right: 24px;
+  font-size: 40px;
+  font-weight: 500;
+}
+.blog-title-container .blog-title-others-container {
+  display: flex;
+  padding-left: 24px;
+  padding-right: 24px;
+  flex-wrap: wrap;
+}
+.blog-title-container .blog-title-others-container .blog-title-others-item {
+  color: #a0a0a0;
+  padding-right: 10px;
+  font-size: 12px;
+}
 
 /*# sourceMappingURL=blogTitle.css.map */

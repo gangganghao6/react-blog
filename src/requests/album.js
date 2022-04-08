@@ -10,8 +10,6 @@ export function getAlbumList() {
 }
 
 export function getAlbumDetail(id = 1) {
- return function () {
-  service.put(`/albums/view/${id}`, {id}).then();
-  return service.get(`/albums/${id}`);
- };
+ service.put(`/albums/view/${id}`, {id}).then();
+ return service.get(`/albums/${id}`);
 }

@@ -3,14 +3,14 @@ import { memo } from "react";
 import { Button, Input } from "antd";
 import store from "../../reducer/resso";
 import { AppstoreFilled, SearchOutlined } from "@ant-design/icons";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 export default memo(function () {
   let { setSiderHide, headerOtherHide, setHeaderOtherHide } = store;
-  let navigator=useNavigate();
+  let navigator = useNavigate();
   const onSearch = (content) => {
-    navigator(`/search?type=search&text=${content}`)
+    navigator(`/search?type=search&text=${content}`);
   };
   return (
     <div className={"header"}>

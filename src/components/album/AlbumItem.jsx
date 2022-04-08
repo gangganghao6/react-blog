@@ -1,19 +1,19 @@
-import {memo} from 'react';
-import {Empty, Image} from 'antd';
-import {NavLink} from 'react-router-dom';
-import {useRequest} from 'ahooks';
-import {getPostSrc} from '../../requests/blog';
+import { memo,Suspense } from "react";
+import { Empty} from "antd";
+import { NavLink } from "react-router-dom";
+import { getPostSrc } from "../../requests/blog";
+import AlbumItemUI from './AlbumItemUI';
+import {dataFecther} from '../../utils/dataFecther';
 
-export default memo(function AlbumItem({data}) {
- let {data: data1, loading} = useRequest(getPostSrc(data.postId));
- return (
-     <>
-      <NavLink to={`/album/${data.id}`} className={'album-item'}>
-       {data1 ?
-           <img loading={'lazy'} src={data1.data.data.gzipSrc} alt={loading ? '' : data.name}/> : Empty.PRESENTED_IMAGE_DEFAULT}
-       <div className={'album-title'}>{data.name}</div>
+export default memo(function AlbumItem({ data }) {
+  return (
+    <>
+      <NavLink to={`/album/${data.id}`} className={"album-item"}>
+       <Suspense fallback={Empty.PRESENTED_IMAGE_DEFAULT}>
+        <AlbumItemUI data={dataFecther(getPostSrc,data.postId)}/>
+       </Suspense>
+        <div className={"album-title"}>{data.name}</div>
       </NavLink>
-     </>
-
- );
+    </>
+  );
 });

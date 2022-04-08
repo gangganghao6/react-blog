@@ -30,14 +30,13 @@ $albumLength: 210px;
     }
   }
 
-
   .blog-comments-container {
     margin-top: 50px;
   }
 }
 
 @media screen and (max-width: $stepOne) {
-  $albumLength: 110px;
+  $albumLength: 140px;
   .album-list-container {
     .album-list-item {
       width: $albumLength;
@@ -53,7 +52,7 @@ $albumLength: 210px;
 }
 
 @media screen and (max-width: $stepTwo) {
-  $albumLength: 115px;
+  $albumLength: 145px;
   .album-list-container {
     .album-list-item {
       width: $albumLength;

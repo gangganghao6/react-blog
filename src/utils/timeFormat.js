@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
 export function parseTime(timeStamp) {
- return dayjs(parseInt(timeStamp)).format('YYYY-MM-DD HH:mm:ss');
+  return dayjs(parseInt(timeStamp)).format("YYYY-MM-DD HH:mm:ss");
 }

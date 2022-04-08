@@ -1,27 +1,20 @@
-import {memo} from 'react';
-import {NavLink} from 'react-router-dom';
-import {FireOutlined, PaperClipOutlined} from '@ant-design/icons';
-import {Collapse} from 'antd';
-import {useRequest} from 'ahooks';
-import {getTags} from '../../requests/tags';
+import { memo,Suspense } from "react";
+import { Collapse } from "antd";
+import { getTags } from "../../requests/tags";
+import TagsUI from './TagsUI';
+import {dataFecther} from '../../utils/dataFecther';
+const { Panel } = Collapse;
 
-const {Panel} = Collapse;
 export default memo(function Tags() {
- let {data, loading} = useRequest(getTags);
- return (
-     <Collapse defaultActiveKey={[]} bordered={false}>
-      <Panel header="文章分类" key="1">
-       {data ? data.data.data.map((item) => {
-        return (
-            <NavLink to={`/search?type=tags&text=${item.text}`} key={item.id}>
-             <li className={'left-sider-menu-item ant-collapse-header'}>
-              <PaperClipOutlined/> {item.text}
-             </li>
-            </NavLink>
-        );
-       }) : '加载中'}
-       {}
-      </Panel>
-     </Collapse>
- );
+  return (
+    <>
+      <Collapse defaultActiveKey={[]} bordered={false}>
+        <Panel header="文章分类" key="1">
+         <Suspense fallback={"加载中"}>
+          <TagsUI data={dataFecther(getTags)}/>
+         </Suspense>
+        </Panel>
+      </Collapse>
+    </>
+  );
 });

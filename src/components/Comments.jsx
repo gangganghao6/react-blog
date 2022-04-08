@@ -1,9 +1,4 @@
-import React, {createElement, useState, memo, useEffect} from 'react';
-import NProgress from 'nprogress';
-import {Tooltip} from 'antd';
-import {Comment, Avatar, Form, Button, List, Input} from 'antd';
-import {DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled, UserOutlined} from '@ant-design/icons';
-import dayjs from 'dayjs';
+import React, {memo} from 'react';
 import '../assets/style/Blog/blogComment.scss';
 import CommentInput from './CommentInput';
 import CommentItem from './CommentItem';
@@ -28,7 +23,7 @@ export default memo(function BlogComments({comments, id, type}) {
            </CommentItem>
        );
       })}
-      <CommentInput setReplyData={setReplyData} replyData={replyData} id={id} type={type}/>
+      <CommentInput setReplyData={setReplyData} replyData={replyData} id={id} type={type} />
      </div>
  );
 });

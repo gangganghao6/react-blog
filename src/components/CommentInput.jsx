@@ -1,10 +1,9 @@
 import {memo, useEffect, useRef} from 'react';
 import '../assets/style/Blog/blogCommentInput.scss';
 import {Button, Form, Input, message} from 'antd';
-import NProgress from 'nprogress';
-import {useRequest} from 'ahooks';
 import {addComment} from '../requests/blog';
 import store from '../reducer/resso';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 const {TextArea} = Input;
 
@@ -12,15 +11,16 @@ export default memo(function BlogCommentInput({
                                                setReplyData,
                                                replyData: {parentComment, isInner, replyComment},
                                                id,
-                                               type
+                                               type,
                                               }) {
  let ref = useRef();
- const {setRefresh} = store;
  const [form] = Form.useForm();
+ const navigator = useNavigate();
+ const location = useLocation();
 
  function onFinish(myComment) {
   let newComment = {...myComment};
-  if(replyComment){
+  if (replyComment) {
    newComment.comment = `回复 @${replyComment.name} : ${myComment.comment}`;
   }
   addComment(id, isInner, parentComment, replyComment, newComment, type).then((res) => {
@@ -30,7 +30,7 @@ export default memo(function BlogCommentInput({
     draft.replyComment = undefined;
     draft.isInner = false;
    });
-   setRefresh();
+   navigator(location.pathname, {replace: true});
    message.success('发布成功');
   });
  }
@@ -72,4 +72,5 @@ export default memo(function BlogCommentInput({
       </Form>
      </div>
  );
-});
+})
+;

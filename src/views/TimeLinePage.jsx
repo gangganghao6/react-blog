@@ -1,43 +1,31 @@
-import {memo, useEffect} from 'react';
-import {PageHeader, Timeline} from 'antd';
-import {ClockCircleOutlined} from '@ant-design/icons';
-import '../assets/style/Timeline/timeline.scss';
-import {useNavigate} from 'react-router-dom';
-import HeaderRouter from '../components/HeaderRouter';
-import store from '../reducer/resso';
-import {useRequest} from 'ahooks';
-import {getTimeLine} from '../requests/timeLine';
-import dayjs from 'dayjs';
-import {parseTime} from '../utils/timeFormat';
+import {memo, useEffect, Suspense, startTransition} from 'react';
+import {Empty} from 'antd';
+import "../assets/style/Timeline/timeline.scss";
+import HeaderRouter from "../components/HeaderRouter";
+import store from "../reducer/resso";
+import { getTimeLine } from "../requests/timeLine";
+import TimeLinePageUI from './TimeLinePageUI';
+import {dataFecther} from '../utils/dataFecther';
 
 export default memo(function TimeLinePage() {
- const {siderHide, setSiderHide} = store;
- let {data, loading} = useRequest(getTimeLine);
- useEffect(() => {
-  if (!siderHide) {
-   setSiderHide();
-   window.scrollTo(0, 0);
-  }
- }, []);
- return (
-     <>
-      <div className={'timeline-container'}>
-       <HeaderRouter/>
-       <h1 style={{marginLeft: '20px'}}>时间轴</h1>
-       <Timeline mode="alternate" className={'timeline'}>
-        {loading ? '' : data.data.data.map((item) => {
-         return (
-             <Timeline.Item
-                 key={item.id}
-                 label={dayjs(parseInt(item.time)).format('YYYY-MM-DD')}
-                 dot={<ClockCircleOutlined style={{fontSize: '16px'}}/>}
-             >
-              {item.text}
-             </Timeline.Item>
-         );
-        })}
-       </Timeline>
+  const { siderHide, setSiderHide } = store;
+  useEffect(() => {
+    if (!siderHide) {
+      startTransition(()=>{
+        setSiderHide();
+      });
+      window.scrollTo(0, 0);
+    }
+  }, []);
+  return (
+    <>
+      <div className={"timeline-container"}>
+        <HeaderRouter />
+        <h1 style={{ marginLeft: "20px" }}>时间线</h1>
+        <Suspense fallback={<Empty description={"加载中"}/>}>
+          <TimeLinePageUI data={dataFecther(getTimeLine)}/>
+        </Suspense>
       </div>
-     </>
- );
+    </>
+  );
 });

@@ -8,7 +8,7 @@ export default memo(function HeaderRouter({ path = "/", name = "详情", subTitl
     <>
       <PageHeader
         className="blog-title-site-page-header"
-        onBack={() => navigator(path)}
+        onBack={() => navigator(-1)}
         title={name}
         subTitle={subTitle}
         style={{
