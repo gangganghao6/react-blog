@@ -1,28 +1,34 @@
-import {memo, useEffect, useState, Suspense} from 'react';
-import '../assets/style/Album/albumListContainer.scss';
-import {useParams} from 'react-router-dom';
-import {getAlbumDetail} from '../requests/album';
-import store from '../reducer/resso';
-import {Skeleton} from 'antd';
-import AlbumListPageUI from './AlbumListPageUI';
-import {dataFecther} from '../utils/dataFecther';
+import { memo, useEffect, useState, Suspense } from "react";
+import "../assets/style/Album/albumListContainer.scss";
+import { useParams } from "react-router-dom";
+import { getAlbumDetail } from "../requests/album";
+import store from "../reducer/resso";
+import { Skeleton } from "antd";
+import AlbumListPageUI from "./AlbumListPageUI";
+import { dataFecther } from "../utils/dataFecther";
 
 export default memo(function AlbumListPage() {
- let {id} = useParams();
- let {siderHide, setSiderHide} = store;
+  let { id } = useParams();
+  let { setSiderHide } = store;
 
- useEffect(() => {
-  if (!siderHide) {
-   setSiderHide();
-   window.scrollTo(0, 0);
-  }
- }, []);
+  useEffect(() => {
+    setSiderHide(true);
+    window.scrollTo(0, 0);
+  }, []);
 
- return (
-     <>
-      <Suspense fallback={<><Skeleton/><Skeleton/><Skeleton/></>}>
-       <AlbumListPageUI data={dataFecther(getAlbumDetail, id)} id={id}/>
+  return (
+    <>
+      <Suspense
+        fallback={
+          <>
+            <Skeleton />
+            <Skeleton />
+            <Skeleton />
+          </>
+        }
+      >
+        <AlbumListPageUI data={dataFecther(getAlbumDetail, id)} id={id} />
       </Suspense>
-     </>
- );
+    </>
+  );
 });

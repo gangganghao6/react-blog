@@ -5,9 +5,9 @@ import Header from "./components/index/Header";
 import LeftSider from "./components/index/LeftSider";
 import Footer from "./components/index/Footer";
 import Index from "./components/index/Index";
-import {BackTop, Skeleton} from 'antd';
-import {dataFecther} from './utils/dataFecther';
-import {getFooter} from './requests/index';
+import { BackTop, Skeleton } from "antd";
+import { dataFecther } from "./utils/dataFecther";
+import { getFooter } from "./requests/index";
 
 function App() {
   return (
@@ -18,8 +18,8 @@ function App() {
       <Index>
         <AllRoutes />
       </Index>
-     <Suspense fallback={<Skeleton/>}>
-      <Footer data={dataFecther(getFooter)} />
+      <Suspense fallback={<Skeleton />}>
+        <Footer data={dataFecther(getFooter)} />
       </Suspense>
     </div>
   );

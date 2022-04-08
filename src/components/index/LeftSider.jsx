@@ -1,5 +1,5 @@
 import "../../assets/style/Index/leftSider.scss";
-import { memo, useState,Suspense } from "react";
+import { memo, useState, Suspense } from "react";
 import { Button } from "antd";
 import store from "../../reducer/resso";
 import {
@@ -15,9 +15,8 @@ import { NavLink } from "react-router-dom";
 import Tags from "../tags/Tags";
 import BackStageLogin from "./BackStageLogin";
 import { getUserInfo } from "../../requests/index";
-import LeftSiderUI from './LeftSiderUI';
-import {dataFecther} from '../../utils/dataFecther';
-
+import LeftSiderUI from "./LeftSiderUI";
+import { dataFecther } from "../../utils/dataFecther";
 
 const { Panel } = Collapse;
 
@@ -29,8 +28,8 @@ export default memo(function () {
       <div className={"left-sider-container"}>
         <div className={"left-sider"}>
           <NavLink className={"left-sider-my"} to={"/about"}>
-            <Suspense fallback={''}>
-              <LeftSiderUI data={dataFecther(getUserInfo)}/>
+            <Suspense fallback={""}>
+              <LeftSiderUI data={dataFecther(getUserInfo)} />
             </Suspense>
           </NavLink>
           <NavLink to={"/"}>

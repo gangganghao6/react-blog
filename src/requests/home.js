@@ -29,22 +29,22 @@ export async function getTopBlog() {
 
 export function getSearchResult(type, key, page = 1) {
   // return function () {
-    if (type === "tags") {
-      return service.get("/blogs/search", {
-        params: {
-          pageNum: page,
-          pageSize: 10,
-          tag: key,
-        },
-      });
-    } else {
-      return service.get("/blogs/search", {
-        params: {
-          pageNum: page,
-          pageSize: 10,
-          text: key,
-        },
-      });
-    }
+  if (type === "tags") {
+    return service.get("/blogs/search", {
+      params: {
+        pageNum: page,
+        pageSize: 10,
+        tag: key,
+      },
+    });
+  } else {
+    return service.get("/blogs/search", {
+      params: {
+        pageNum: page,
+        pageSize: 10,
+        text: key,
+      },
+    });
+  }
   // };
 }

@@ -7,14 +7,19 @@ import { useNavigate } from "react-router-dom";
 
 const { Search } = Input;
 export default memo(function () {
-  let { setSiderHide, headerOtherHide, setHeaderOtherHide } = store;
+  let { setSiderHide, siderHide, headerOtherHide, setHeaderOtherHide } = store;
   let navigator = useNavigate();
   const onSearch = (content) => {
     navigator(`/search?type=search&text=${content}`);
   };
   return (
     <div className={"header"}>
-      <Button type={"text"} onClick={setSiderHide} className={"search-button-min"} icon={<AppstoreFilled />} />
+      <Button
+        type={"text"}
+        onClick={() => setSiderHide(!siderHide)}
+        className={"search-button-min"}
+        icon={<AppstoreFilled />}
+      />
       <div className={"header-logo"}>Pikachu的博客</div>
       <div className={"header-right"}>
         <Button type={"text"} onClick={setHeaderOtherHide} className={"search-button-min"} icon={<SearchOutlined />} />

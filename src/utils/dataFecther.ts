@@ -1,10 +1,13 @@
-import objectHash from 'object-hash';
+import { getAlbumDetail } from "../requests/album";
+import { getBlogDetail } from "../requests/blog";
 
-let cache = {};
+const cache = {};
+const albumName = getAlbumDetail.name;
+const blogName = getBlogDetail.name;
 
 export function dataFecther(requestFn: Function, ...params: any[]): { read(): any } {
   // @ts-ignore
-  const hash = objectHash.sha1(requestFn.name + params.toString());
+  const hash = requestFn.name + params.toString();
   if (cache[hash]) {
     return {
       read() {
@@ -12,28 +15,27 @@ export function dataFecther(requestFn: Function, ...params: any[]): { read(): an
       },
     };
   }
-  let state = 'pending';
+  let state = "pending";
   let data = null;
   const promise = requestFn(...params).then(
     (res) => {
-      state = 'resolved';
+      state = "resolved";
       data = res;
     },
     (err) => {
-      state = 'rejected';
+      state = "rejected";
       data = err;
-    },
+    }
   );
   return {
     read() {
-      if (state === 'pending') {
+      if (state === "pending") {
         throw promise;
-      } else if (state === 'rejected') {
+      } else if (state === "rejected") {
         throw data;
       } else {
-
         // @ts-ignore
-        if (requestFn.name !== 'getBlogDetail' && requestFn.name !== 'getAlbumDetail') {
+        if (requestFn.name !== albumName && requestFn.name !== blogName) {
           cache[hash] = data;
         }
         return data;

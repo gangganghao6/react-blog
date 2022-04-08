@@ -1,11 +1,11 @@
 import { service } from "./request";
 
 export function getPostSrc(id) {
-    return service.get(`/images/${id}`);
+  return service.get(`/images/${id}`);
 }
 
 export function getBlogDetail(id) {
-    return service.get(`/blogs/${id}`);
+  return service.get(`/blogs/${id}`);
 }
 
 export async function addComment(id, isInner, parentComment, replyComment, myComment, type) {

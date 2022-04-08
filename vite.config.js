@@ -30,12 +30,12 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         /*
-        引入var.scss全局预定义变量，
-        如果引入多个文件，
-        可以使用
-        '@import "@/assets/scss/globalVariable1.scss";@import "@/assets/scss/globalVariable2.scss";'
-        这种格式
-         */
+    引入var.scss全局预定义变量，
+    如果引入多个文件，
+    可以使用
+    '@import "@/assets/scss/globalVariable1.scss";@import "@/assets/scss/globalVariable2.scss";'
+    这种格式
+     */
         // additionalData: '@import "@/assets/style/base.scss";',
         additionalData: '@import "./src/assets/style/index.scss";',
       },
@@ -70,6 +70,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           antd: ["antd"],
+          react: ["react", "react-dom"],
           // 'antd-mobile': ["antd-mobile"],
           // 'react-syntax-highlighter':['react-syntax-highlighter']
         },
