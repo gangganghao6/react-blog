@@ -8,7 +8,7 @@ import { dataFecther } from "../../utils/dataFecther";
 export default memo(function RandomBlog() {
   return (
     <>
-      <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton active />}>
         <RandomBlogUI data={dataFecther(getHotAndRecommendList)} />
       </Suspense>
     </>

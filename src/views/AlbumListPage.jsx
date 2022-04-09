@@ -21,9 +21,9 @@ export default memo(function AlbumListPage() {
       <Suspense
         fallback={
           <>
-            <Skeleton />
-            <Skeleton />
-            <Skeleton />
+            <Skeleton active />
+            <Skeleton active />
+            <Skeleton active />
           </>
         }
       >

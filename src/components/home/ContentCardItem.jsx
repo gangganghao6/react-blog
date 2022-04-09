@@ -14,7 +14,7 @@ export default memo(function ContentCardItem({
   });
   return (
     <Link className={"left-content-article-item " + (type === 1 ? "type1" : "type2")} to={"/blog/" + id}>
-      <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton active />}>
         <ContentCardItemUI
           data={dataFecther(getPostSrc, postId)}
           total={total}

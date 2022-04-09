@@ -18,7 +18,7 @@ function App() {
       <Index>
         <AllRoutes />
       </Index>
-      <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton active />}>
         <Footer data={dataFecther(getFooter)} />
       </Suspense>
     </div>

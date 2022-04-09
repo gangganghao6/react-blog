@@ -2,54 +2,42 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
-}
-.github-container .github-item-container {
-  background: #e8cbc0;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #636fa4, #e8cbc0);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #636fa4, #e8cbc0);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: #e0eafc;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #cfdef3, #e0eafc);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  width: 47%;
-  height: 200px;
-  background-color: pink;
-  margin: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px;
-  justify-content: space-around;
-}
-.github-container .github-item-container .github-item-title {
-  font-size: 22px;
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-}
-.github-container .github-item-container .github-item-description {
-  font-size: 12px;
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-.github-container .github-item-container .github-item-others {
-  display: flex;
-  flex-direction: row;
-}
-.github-container .github-item-container .github-item-url {
-  display: block;
-  width: 50px;
-}
+  width: 100%; }
+  .github-container .github-item-container {
+    color: #586069;
+    width: 100%;
+    height: 150px;
+    background-color: white;
+    border: 1px solid #e4e2e2;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 10px 15px; }
+    .github-container .github-item-container .github-item-title {
+      font-size: 22px;
+      color: #3080ed;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical; }
+    .github-container .github-item-container .github-item-description {
+      font-size: 14px;
+      line-height: 24px;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      padding-left: 5px; }
+    .github-container .github-item-container .github-item-others {
+      display: flex;
+      flex-direction: row;
+      font-size: 14px; }
+  .github-container .github-item-container:hover {
+    background-color: #efefef; }
 
 /*# sourceMappingURL=githubItem.css.map */

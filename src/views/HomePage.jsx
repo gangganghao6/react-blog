@@ -26,15 +26,15 @@ export default memo(function home({ type = "home" }) {
       <Suspense
         fallback={
           <>
-            <Skeleton />
-            <Skeleton />
+            <Skeleton active />
+            <Skeleton active />
           </>
         }
       >
         {type === "home" ? <TopCard data={dataFecther(getTopBlog)} /> : ""}
       </Suspense>
       {type === "search" ? <HeaderRouter name={"搜索结果"} /> : ""}
-      <Suspense fallback={<Skeleton />}>
+      <Suspense fallback={<Skeleton active />}>
         <HomePageUI
           data={
             type === "home"

@@ -23,13 +23,13 @@ export default memo(function GithubPage() {
   }, []);
   return (
     <>
-      <HeaderRouter />
+      <HeaderRouter name={"GitHub展示"} />
       <div className={"github-container"}>
         <Suspense
           fallback={
             <>
-              <Skeleton />
-              <Skeleton />
+              <Skeleton active />
+              <Skeleton active />
             </>
           }
         >
