@@ -19,7 +19,7 @@ export default memo(function GithubItem({ detail }) {
           <ForkOutlined /> {detail["forks_count"]} forks
         </div>
         <div className={"github-item-description"}>
-          最后更新:{dayjs(detail.pushed_at).format("YYYY-MM-DD HH:mm:ss")}
+          最后更新: {dayjs(detail.pushed_at).format("YYYY-MM-DD HH:mm")}
         </div>
       </div>
     </a>
