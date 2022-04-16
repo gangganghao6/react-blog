@@ -1,8 +1,7 @@
-import { defineConfig } from "vite";
-import legacy from "@vitejs/plugin-legacy";
-import viteCompression from "vite-plugin-compression";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import {defineConfig} from 'vite';
+import viteCompression from 'vite-plugin-compression';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -11,8 +10,8 @@ export default defineConfig({
       verbose: true,
       disable: false,
       threshold: 1024,
-      algorithm: "gzip",
-      ext: ".gz",
+      algorithm: 'gzip',
+      ext: '.gz',
     }),
     // legacy({
     //   targets: ["defaults", "not IE 11"],
@@ -69,8 +68,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          antd: ["antd"],
-          react: ["react", "react-dom"],
+          // antd: ["antd"],
+          // react: ["react", "react-dom"],
           // 'antd-mobile': ["antd-mobile"],
           // 'react-syntax-highlighter':['react-syntax-highlighter']
         },
