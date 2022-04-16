@@ -1,18 +1,17 @@
-import { memo, useEffect, useRef } from "react";
-import "../assets/style/Blog/blogCommentInput.scss";
-import { Button, Form, Input, message } from "antd";
-import { addComment } from "../requests/blog";
-import store from "../reducer/resso";
-import { useLocation, useNavigate } from "react-router-dom";
+import {memo, useEffect, useRef} from 'react';
+import '../assets/style/Blog/blogCommentInput.scss';
+import {Button, Form, Input, message} from 'antd';
+import {addComment} from '../requests/blog';
+import {useLocation, useNavigate} from 'react-router-dom';
 
-const { TextArea } = Input;
+const {TextArea} = Input;
 
 export default memo(function BlogCommentInput({
-  setReplyData,
-  replyData: { parentComment, isInner, replyComment },
-  id,
-  type,
-}) {
+                                                setReplyData,
+                                                replyData: {parentComment, isInner, replyComment},
+                                                id,
+                                                type,
+                                              }) {
   let ref = useRef();
   const [form] = Form.useForm();
   const navigator = useNavigate();
