@@ -61,11 +61,11 @@
 @media screen and (max-width: 900px) {
     .album-list-container .album-list-item {
         width: 32.5%;
-        height: calc(var(--screen-width) / 4.4);
+        height: calc(var(--screen-width) / 3.4);
     }
 
     .album-list-container .album-list-item .ant-image img {
-        height: calc(var(--screen-width) / 4.4);
+        height: calc(var(--screen-width) / 3.4);
     }
 }
 

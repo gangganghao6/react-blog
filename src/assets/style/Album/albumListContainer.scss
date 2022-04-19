@@ -69,7 +69,7 @@ $albumLength: 210px;
 
 @media screen and (max-width: $stepThree) {
   $contentWidth: $stepThreeWidth;
-  $albumLength: calc(#{$contentWidth} / 4.4);
+  $albumLength: calc(#{$contentWidth} / 3.4);
   .album-list-container {
     .album-list-item {
       width: 32.5%;

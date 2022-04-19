@@ -20,8 +20,8 @@
 .album-container .album-item {
     transition: all 0.3s;
     height: 210px;
-    flex-basis: 22.5%;
-    margin: 10px;
+    flex-basis: 23.5%;
+    margin: 5px;
     overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -62,19 +62,20 @@
 
 @media screen and (max-width: 1420px) {
     .album-container .album-item {
-        flex-basis: 30%;
+        flex-basis: 31.5%;
     }
 }
 
 @media screen and (max-width: 1150px) {
     .album-container .album-item {
-        flex-basis: 44%;
+        flex-basis: 48%;
+        height: 230px;
     }
 }
 
 @media screen and (max-width: 900px) {
     .album-container .album-item {
-        flex-basis: 44%;
+        flex-basis: 47%;
     }
 }
 
