@@ -41,6 +41,19 @@
   pre {
     margin-top: 10px;
     margin-bottom: 10px;
+
+    div {
+      padding: 0 !important;
+      padding-top: 5px !important;
+      padding-bottom: 5px !important;
+      padding-right: 10px !important;
+
+      code {
+        .linenumber {
+          min-width: 2.5rem !important;
+        }
+      }
+    }
   }
 
   .blog-content-lastModified {

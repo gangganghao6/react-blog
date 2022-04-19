@@ -7,12 +7,17 @@
     width: 100%;
     height: 65%;
     padding-bottom: 2px;
+
+    .left-content-article-img {
+      border-radius: 10px 10px 0 0;
+    }
   }
 
   .left-content-article-text-container {
     padding: 0 5px 5px;
-    width: 90%;
+    width: 94%;
     height: 35%;
+
     .left-content-article-detail {
       padding-bottom: 2px;
     }

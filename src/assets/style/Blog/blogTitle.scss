@@ -1,3 +1,4 @@
+@import "../index";
 .blog-title-container {
   display: flex;
   flex-direction: column;
@@ -5,21 +6,30 @@
   background-color: white;
 
   .blog-title {
-    padding-left: 24px;
-    padding-right: 24px;
-    font-size: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 32px;
     font-weight: 500;
   }
 
   .blog-title-others-container {
     display: flex;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
     flex-wrap: wrap;
+
     .blog-title-others-item {
       color: rgb(160, 160, 160);
       padding-right: 10px;
       font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: $stepThree) {
+  .blog-title-container {
+    .blog-title {
+      font-size: 24px;
     }
   }
 }

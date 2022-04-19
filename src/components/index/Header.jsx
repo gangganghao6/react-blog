@@ -1,18 +1,19 @@
-import "../../assets/style/Index/header.scss";
-import { memo } from "react";
-import { Button, Input } from "antd";
-import store from "../../reducer/resso";
-import { AppstoreFilled, SearchOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import '../../assets/style/Index/header.scss';
+import {memo} from 'react';
+import {Button, Input} from 'antd';
+import store from '../../reducer/resso';
+import {AppstoreFilled, SearchOutlined} from '@ant-design/icons';
+import {useNavigate} from 'react-router-dom';
 
-const { Search } = Input;
+const {Search} = Input;
 export default memo(function () {
-  let { setSiderHide, siderHide, headerOtherHide, setHeaderOtherHide } = store;
-  let navigator = useNavigate();
-  const onSearch = (content) => {
-    navigator(`/search?type=search&text=${content}`);
-  };
-  return (
+ let {setSiderHide, siderHide, headerOtherHide, setHeaderOtherHide} = store;
+ let navigator = useNavigate();
+ const onSearch = (content) => {
+  setHeaderOtherHide();
+  navigator(`/search?type=search&text=${content}`);
+ };
+ return (
     <div className={"header"}>
       <Button
         type={"text"}

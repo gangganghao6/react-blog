@@ -1,7 +1,7 @@
-import "../../assets/style/Index/leftSider.scss";
-import { memo, useState, Suspense } from "react";
-import { Button } from "antd";
-import store from "../../reducer/resso";
+import '../../assets/style/Index/leftSider.scss';
+import {memo, Suspense, useState} from 'react';
+import {Button, Collapse} from 'antd';
+import store from '../../reducer/resso';
 import {
   GithubOutlined,
   HomeOutlined,
@@ -9,24 +9,23 @@ import {
   SendOutlined,
   SettingOutlined,
   UserOutlined,
-} from "@ant-design/icons";
-import { Collapse } from "antd";
-import { NavLink } from "react-router-dom";
-import Tags from "../tags/Tags";
-import BackStageLogin from "./BackStageLogin";
-import { getUserInfo } from "../../requests/index";
-import LeftSiderUI from "./LeftSiderUI";
-import { dataFecther } from "../../utils/dataFecther";
+} from '@ant-design/icons';
+import {NavLink} from 'react-router-dom';
+import Tags from '../tags/Tags';
+import BackStageLogin from './BackStageLogin';
+import {getUserInfo} from '../../requests/index';
+import LeftSiderUI from './LeftSiderUI';
+import {dataFecther} from '../../utils/dataFecther';
 
-const { Panel } = Collapse;
+const {Panel} = Collapse;
 
 export default memo(function () {
-  let { siderHide } = store;
+  let {siderHide} = store;
   let [visible, setVisible] = useState(false);
   return (
-    <div className={"total-sider " + (siderHide ? "sider-hide" : "sider-show")}>
-      <div className={"left-sider-container"}>
-        <div className={"left-sider"}>
+      <div className={'total-sider ' + (siderHide ? 'sider-hide' : 'sider-show')}>
+        <div className={'left-sider-container'}>
+          <div className={'left-sider'}>
           <NavLink className={"left-sider-my"} to={"/about"}>
             <Suspense fallback={""}>
               <LeftSiderUI data={dataFecther(getUserInfo)} />
@@ -62,11 +61,12 @@ export default memo(function () {
       </div>
       <div className={"left-sider-footer"}>
         <Button
-          type={"text"}
-          className={"left-sider-footer-button"}
-          onClick={() => {
-            setVisible(true);
-          }}
+            type={"text"}
+            className={"left-sider-footer-button"}
+            onClick={() => {
+              setVisible(true);
+            }}
+            disabled={true}
         >
           <SettingOutlined />
           后台

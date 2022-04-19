@@ -12,16 +12,16 @@ $albumLength: 210px;
   align-content: flex-start;
   padding-left: 10px;
   padding-right: 10px;
-
   .album-list-item {
     cursor: pointer;
-    width: $albumLength;
+    width: 24%;
     height: $albumLength;
     overflow: hidden;
     margin: 1px 1px;
 
     .ant-image {
       display: flex;
+
       img {
         width: 100%;
         height: $albumLength;
@@ -39,7 +39,7 @@ $albumLength: 210px;
   $albumLength: 140px;
   .album-list-container {
     .album-list-item {
-      width: $albumLength;
+      width: 24%;
       height: $albumLength;
 
       .ant-image {
@@ -72,7 +72,7 @@ $albumLength: 210px;
   $albumLength: calc(#{$contentWidth} / 4.4);
   .album-list-container {
     .album-list-item {
-      width: $albumLength;
+      width: 32.5%;
       height: $albumLength;
 
       .ant-image {

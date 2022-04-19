@@ -10,10 +10,10 @@ export default memo(function AlbumPageUI({data}) {
      <>
       <div className={'album-container'}>
        {count === 0 ? <Empty/> : ''}
-       {list.slice((page - 1) * 20, page * 20).map((item) => {
+       {list.slice((page - 1) * 24, page * 24).map((item) => {
         return <AlbumItem key={item.id} data={item}/>;
        })}
-       <MyPagination current={page} setPage={setPage} total={count} pageSize={20}/>
+       <MyPagination current={page} setPage={setPage} total={count} pageSize={24}/>
       </div>
      </>
  );
