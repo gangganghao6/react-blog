@@ -1,8 +1,9 @@
 import axios from "axios";
 import NProgress from "nprogress";
-
+const { VITE_MY_IP, VITE_SERVER_PORT } = import.meta.env;
+console.log(`http://${VITE_MY_IP}:${VITE_SERVER_PORT}/api`);
 export const service = axios.create({
-  baseURL: "/api",
+  baseURL: `http://${VITE_MY_IP}:${VITE_SERVER_PORT}/api`,
   timeout: 5000,
 });
 

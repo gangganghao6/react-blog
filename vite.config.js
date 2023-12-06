@@ -2,6 +2,9 @@ import {defineConfig} from 'vite';
 import viteCompression from 'vite-plugin-compression';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import * as dotenv from 'dotenv';
+const isDev = process.env.NODE_ENV.trim() == 'dev' ? true : false;
+process.env = dotenv.config({ path: isDev ? '.env' : '.env.prod' }).parsed;
 
 export default defineConfig({
   plugins: [
@@ -48,7 +51,7 @@ export default defineConfig({
     https: false,
     proxy: {
       "/api": {
-        target: "http://192.168.31.30:3000", // 所要代理的目标地址
+        target: `http://${process.env.VITE_MY_IP}:${process.env.VITE_MY_PORT}`, // 所要代理的目标地址
         rewrite: (path) => path.replace(/^\/api/, "/api"), // 重写传过来的path路径，比如 `/api/index/1?id=10&name=zs`（注意:path路径最前面有斜杠（/），因此，正则匹配的时候不要忘了是斜杠（/）开头的；选项的 key 也是斜杠（/）开头的）
         changeOrigin: true, // true/false, Default: false - changes the origin of the host header to the target URL
       },
@@ -56,7 +59,7 @@ export default defineConfig({
   },
   // 生产环境打包配置
   //去除 console debugger
-  base: "/blog/dist/",
+  // base: "/blog/dist/",
   build: {
     sourcemap: true,
     terserOptions: {

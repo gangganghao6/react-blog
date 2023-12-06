@@ -5,7 +5,7 @@ import Content from "../components/blog/BlogContent";
 import Comments from "../components/Comments";
 
 export default memo(function BlogPageUI({ data, id }) {
-  const result = data.read().data.data;
+  const result = data.read().data.data || { comments: [], content: '' };
   let total = 0;
   total += result.comments.length;
   result.comments.forEach((item) => {
